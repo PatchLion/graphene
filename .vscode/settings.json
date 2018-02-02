@@ -1,0 +1,10 @@
+{
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iterator": "cpp",
+        "system_error": "cpp",
+        "bitset": "cpp",
+        "*.tcc": "cpp"
+    }
+}

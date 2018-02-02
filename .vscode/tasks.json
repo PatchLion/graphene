@@ -1,0 +1,69 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake_Debug",
+            "type": "shell",
+            "command": "./.vscode/checkdir.sh Debug && cd Debug && cmake ..",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+                "-DBOOST_ROOT=/home/patchlion/opt/boost_1_57_0",
+                "-DCURSES_LIBRARY=/usr/lib/x86_64-linux-gnu",
+                "-DCURSES_INCLUDE_PATH=/usr/include",
+                "-DGRAPHENE_EGENESIS_JSON=/home/patchlion/projects/graphene/genesis.json"
+            ],
+            "problemMatcher": [],
+            
+        }, 
+        {
+            "label": "CMake_Release",
+            "type": "shell",
+            "command": "./.vscode/checkdir.sh Release && cd Release && cmake ..",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+                "-DBOOST_ROOT=/home/patchlion/opt/boost_1_57_0",
+                "-DCURSES_LIBRARY=/usr/lib/x86_64-linux-gnu",
+                "-DCURSES_INCLUDE_PATH=/usr/include",
+                "-DGRAPHENE_EGENESIS_JSON=/home/patchlion/projects/graphene/genesis.json"
+            ],
+            "problemMatcher": [],
+            
+        },
+        {
+            "label": "CMake_Clean",
+            "type": "shell",
+            "command": "echo '清除文件夹' $(pwd) '下的CMake临时文件!' && find . -name \"CMakeCache.txt\" | xargs rm -f && find . -name \"CMakeFiles\" | xargs rm -Rf && echo '清除完成!'",
+            "problemMatcher": []
+        },
+        {
+            "label": "make_Debug",
+            "type": "shell",
+            "command": "./.vscode/checkdir.sh Debug && cd Debug && make",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make_Release",
+            "type": "shell",
+            "command": "./.vscode/checkdir.sh Release && cd Release && make",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make_clean",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": []
+        }
+    ]
+}
